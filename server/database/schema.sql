@@ -1,12 +1,23 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+CREATE TABLE user (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  pwd VARCHAR(255) NOT NULL
 );
 
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
+CREATE TABLE role (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE mage (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+INSERT INTO role (name) VALUES ('ROLE_USER');
+INSERT INTO role (name) VALUES ('ROLE_ADMIN');
+
+
+
+INSERT INTO user (username, pwd) VALUES ('admin', "admin");
+INSERT INTO user (username, pwd) VALUES ('user', "user");

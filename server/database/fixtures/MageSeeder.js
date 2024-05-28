@@ -1,9 +1,9 @@
 const AbstractSeeder = require("./AbstractSeeder");
 
-class UserSeeder extends AbstractSeeder {
+class MageSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "user", truncate: true });
+    super({ table: "mage", truncate: true });
   }
 
   // The run method - Populate the 'user' table with fake data
@@ -12,16 +12,15 @@ class UserSeeder extends AbstractSeeder {
     // Generate and insert fake data into the 'user' table
     for (let i = 0; i < 10; i += 1) {
       // Generate fake user data
-      const fakeUser = {
-        username: this.faker.person.firstName(),
-        pwd: this.faker.internet.password(), // Generate a fake password using faker library
+      const fakeMage = {
+        name: this.faker.person.firstName(),
       };
 
       // Insert the fakeUser data into the 'user' table
-      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
+      this.insert(fakeMage); // insert into user(email, password) values (?, ?)
     }
   }
 }
 
 // Export the UserSeeder class
-module.exports = UserSeeder;
+module.exports = MageSeeder;
